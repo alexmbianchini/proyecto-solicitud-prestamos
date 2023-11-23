@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitud de Préstamos</title>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="/pedido-prestamo">Solicitar Préstamo</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li>
+        <a href="/listado-prestamos">Listado Préstamos</a>
+      </li>
+      <li>
+        <a href="/logout">Cerrar Sesión</a>
+      </li>
+      {% else %}
+      <li>
+        <a href="/">Iniciar Sesión</a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+</html>

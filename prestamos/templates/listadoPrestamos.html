@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Listado Préstamos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Género</th>
+            <th>Email</th>
+            <th>Monto</th>
+            <th>Préstamo Aprobado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for solicitante in solicitantes %}
+            <tr>
+                <td>{{solicitante.dni}}</td>
+                <td>{{solicitante.nombre}}</td>
+                <td>{{solicitante.apellido}}</td>
+                <td>{{solicitante.genero}}</td>
+                <td>{{solicitante.email}}</td>
+                <td>{{solicitante.monto}}</td>
+                {% if solicitante.aprobado %}
+                    <td>Si</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                <td>
+                    <a href="{% url 'editar-solicitante' solicitante.id %}">Editar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

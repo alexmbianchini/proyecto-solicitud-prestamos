@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Solcitar Préstamo</h1>
+
+<form action="/pedido-prestamo/" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        Solicitar
+    </button>
+
+</form>
+ {{mensaje}}
+
+{% endblock %}
